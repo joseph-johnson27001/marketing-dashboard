@@ -2,57 +2,47 @@
   <div class="overview-page">
     <div class="kpi-container">
       <KpiCard
-        title="Revenue"
-        value="$15,200"
-        percentage="8.5"
-        icon="fas fa-dollar-sign"
-        iconColor="#10b981"
-      />
-      <KpiCard
-        title="Users"
-        value="1,250"
-        percentage="-2.3"
-        icon="fas fa-users"
-        iconColor="#01a9f2"
-      />
-      <KpiCard
-        title="Engagement"
-        value="75%"
-        percentage="5.1"
-        icon="fas fa-chart-line"
-        iconColor="#f59e0b"
-      />
-      <KpiCard
-        title="Conversions"
-        value="320"
-        percentage="-1.2"
-        icon="fas fa-shopping-cart"
-        iconColor="#a855f7"
-      />
-      <KpiCard
-        title="Retention Rate"
-        value="88%"
-        percentage="3.4"
-        icon="fas fa-redo"
-        iconColor="#d86890"
-      />
-      <KpiCard
-        title="New Signups"
-        value="540"
-        percentage="12.7"
-        icon="fas fa-user-plus"
-        iconColor="#6366f1"
+        v-for="(kpi, index) in kpiData"
+        :key="index"
+        :title="kpi.title"
+        :value="overviewStore.kpis[index]?.value || 'Loading...'"
+        :percentage="overviewStore.kpis[index]?.percentage || 0"
+        :icon="kpi.icon"
+        :iconColor="kpi.iconColor"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { useOverviewStore } from "@/store/overviewStore";
 import KpiCard from "@/components/ui/KpiCard.vue";
+import { onMounted, computed } from "vue";
 
 export default {
-  components: {
-    KpiCard,
+  components: { KpiCard },
+
+  setup() {
+    const overviewStore = useOverviewStore();
+
+    onMounted(() => {
+      overviewStore.loadOverviewData();
+    });
+
+    const kpiData = computed(() => [
+      { title: "Revenue", icon: "fas fa-dollar-sign", iconColor: "#10b981" },
+      { title: "Users", icon: "fas fa-users", iconColor: "#3b82f6" },
+      { title: "Engagement", icon: "fas fa-chart-line", iconColor: "#f59e0b" },
+      {
+        title: "Conversions",
+        icon: "fas fa-shopping-cart",
+        iconColor: "#ef4444",
+      },
+      { title: "Retention Rate", icon: "fas fa-redo", iconColor: "#a855f7" },
+      { title: "New Signups", icon: "fas fa-user-plus", iconColor: "#6366f1" },
+    ]);
+
+    return { overviewStore, kpiData };
   },
 };
 </script>
@@ -63,7 +53,7 @@ export default {
 }
 .kpi-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Now 6 in a row */
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 </style>

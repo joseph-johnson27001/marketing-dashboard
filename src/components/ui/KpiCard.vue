@@ -68,7 +68,7 @@ export default {
 .kpi-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #222;
+  color: #444;
 }
 
 .kpi-percentage {
