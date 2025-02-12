@@ -2,7 +2,7 @@
   <div class="kpi-card">
     <div class="kpi-header">
       <span class="kpi-title">{{ title }}</span>
-      <i :class="icon" class="kpi-icon"></i>
+      <i :class="icon" class="kpi-icon" :style="{ color: iconColor }"></i>
     </div>
     <div class="kpi-footer">
       <span class="kpi-value">{{ value }}</span>
@@ -16,22 +16,11 @@
 <script>
 export default {
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: [String, Number],
-      required: true,
-    },
-    percentage: {
-      type: Number,
-      required: true,
-    },
-    icon: {
-      type: String,
-      required: true,
-    },
+    title: { type: String, required: true },
+    value: { type: [String, Number], required: true },
+    percentage: { type: Number, required: true },
+    icon: { type: String, required: true },
+    iconColor: { type: String, required: true }, // New prop for icon color
   },
   computed: {
     percentageClass() {
@@ -50,7 +39,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #eee;
   padding: 15px;
-  gap: 10px;
+  gap: 15px;
 }
 
 .kpi-header {
@@ -67,7 +56,6 @@ export default {
 
 .kpi-icon {
   font-size: 1.2rem;
-  color: #555;
 }
 
 .kpi-footer {
@@ -86,8 +74,9 @@ export default {
 .kpi-percentage {
   font-size: 1rem;
   font-weight: bold;
-  padding: 3px 8px;
-  border-radius: 5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid #eee;
 }
 
 .positive {
