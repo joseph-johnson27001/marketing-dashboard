@@ -13,12 +13,11 @@
     <div class="map-placeholder">
       <vue-world-map
         :countryData="viewershipData"
-        :lowColor="'#01a9f2'"
+        :lowColor="'#b3e8ff'"
         :highColor="'#01a9f2'"
         style="background-color: white"
         :defaultCountryFillColor="'#e4ecef'"
         :countryStrokeColor="'white'"
-        :tooltip="tooltipData"
       />
     </div>
   </div>
@@ -42,9 +41,9 @@ export default {
     return {
       selectedRange: "24hr",
       viewershipData: {
-        US: 100,
+        US: 400,
         CA: 120,
-        UK: 400,
+        UK: 200,
         DE: 250,
         FR: 150,
         IN: 80,
@@ -64,44 +63,48 @@ export default {
           this.viewershipData = {
             US: 100,
             CA: 120,
-            UK: 400,
+            GB: 400,
             DE: 250,
             FR: 150,
             IN: 80,
             JP: 200,
+            TH: 200,
           };
           break;
         case "lastWeek":
           this.viewershipData = {
             US: 700,
             CA: 800,
-            UK: 1800,
+            GB: 1800,
             DE: 1500,
             FR: 1000,
             IN: 600,
             JP: 1200,
+            TH: 400,
           };
           break;
         case "lastMonth":
           this.viewershipData = {
             US: 3000,
             CA: 3500,
-            UK: 12000,
+            GB: 12000,
             DE: 11000,
             FR: 8000,
             IN: 4000,
             JP: 7000,
+            TH: 1000,
           };
           break;
         case "lastYear":
           this.viewershipData = {
             US: 15000,
             CA: 17000,
-            UK: 60000,
+            GB: 60000,
             DE: 55000,
             FR: 40000,
             IN: 20000,
             JP: 35000,
+            TH: 20000,
           };
           break;
         default:
