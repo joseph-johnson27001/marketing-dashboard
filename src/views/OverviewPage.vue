@@ -1,16 +1,29 @@
 <template>
   <div class="overview-page">
     <LoadingSpinner v-if="overviewStore.loading" />
-    <div v-else class="kpi-container">
-      <KpiCard
-        v-for="(kpi, index) in kpiData"
-        :key="index"
-        :title="kpi.title"
-        :value="overviewStore.kpis[index]?.value"
-        :percentage="overviewStore.kpis[index]?.percentage || 0"
-        :icon="kpi.icon"
-        :iconColor="kpi.iconColor"
-      />
+    <div v-else>
+      <div class="kpi-container">
+        <!-- Kpi Cards -->
+        <KpiCard
+          v-for="(kpi, index) in kpiData"
+          :key="index"
+          :title="kpi.title"
+          :value="overviewStore.kpis[index]?.value"
+          :percentage="overviewStore.kpis[index]?.percentage || 0"
+          :icon="kpi.icon"
+          :iconColor="kpi.iconColor"
+        />
+      </div>
+
+      <!-- Chart Container Cards -->
+      <div class="chart-containers">
+        <div class="chart-container">
+          <ChartContainerCard :chartTitle="'Viewership'" />
+        </div>
+        <div class="chart-container">
+          <ChartContainerCard :chartTitle="'Traffic Over Time'" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -18,11 +31,12 @@
 <script>
 import { useOverviewStore } from "@/store/overviewStore";
 import KpiCard from "@/components/ui/KpiCard.vue";
+import ChartContainerCard from "@/components/ui/ChartContainerCard.vue";
 import LoadingSpinner from "@/components/ui/LoadingSpinner.vue";
 import { onMounted, computed } from "vue";
 
 export default {
-  components: { KpiCard, LoadingSpinner },
+  components: { KpiCard, LoadingSpinner, ChartContainerCard },
 
   setup() {
     const overviewStore = useOverviewStore();
@@ -57,6 +71,13 @@ export default {
 .kpi-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.chart-containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
   gap: 10px;
 }
 </style>
