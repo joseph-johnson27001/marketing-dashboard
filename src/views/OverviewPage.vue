@@ -15,6 +15,16 @@
         />
       </div>
 
+      <!-- Map Container -->
+      <div class="top-container">
+        <div class="map-container">
+          <MapContainer mapTitle="Subscribers" />
+        </div>
+        <div class="chart-container">
+          <ChartContainerCard :chartTitle="'Viewership'" />
+        </div>
+      </div>
+
       <!-- Chart Container Cards -->
       <div class="chart-containers">
         <div class="chart-container">
@@ -33,10 +43,11 @@ import { useOverviewStore } from "@/store/overviewStore";
 import KpiCard from "@/components/ui/KpiCard.vue";
 import ChartContainerCard from "@/components/ui/ChartContainerCard.vue";
 import LoadingSpinner from "@/components/ui/LoadingSpinner.vue";
+import MapContainer from "@/components/ui/MapContainer.vue";
 import { onMounted, computed } from "vue";
 
 export default {
-  components: { KpiCard, LoadingSpinner, ChartContainerCard },
+  components: { KpiCard, LoadingSpinner, ChartContainerCard, MapContainer },
 
   setup() {
     const overviewStore = useOverviewStore();
@@ -65,12 +76,19 @@ export default {
 
 <style scoped>
 .overview-page {
-  padding: 20px;
+  padding: 10px;
 }
 
 .kpi-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.top-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-top: 10px;
   gap: 10px;
 }
 

@@ -30,8 +30,8 @@ body {
 }
 
 #app {
-  height: 100dvh;
-  width: 100dvw;
+  min-height: 100dvh;
+  width: 100%;
   display: flex;
   font-family: "Assistant", serif;
 }
