@@ -81,7 +81,7 @@ export default {
       ],
       logoutItem: {
         label: "Logout",
-        link: "/logout",
+        // link: "/logout",
         icon: "fas fa-sign-out-alt",
         iconColor: "#e74c3c",
       },
