@@ -69,6 +69,18 @@ export default {
             IN: 80,
             JP: 200,
             TH: 200,
+            AU: 300,
+            BR: 150,
+            MX: 220,
+            IT: 180,
+            ES: 250,
+            NL: 130,
+            RU: 190,
+            ZA: 170,
+            AR: 110,
+            SE: 210,
+            PL: 160,
+            KR: 300,
           };
           break;
         case "lastWeek":
@@ -81,6 +93,18 @@ export default {
             IN: 600,
             JP: 1200,
             TH: 400,
+            AU: 650,
+            BR: 850,
+            MX: 900,
+            IT: 1100,
+            ES: 1050,
+            NL: 900,
+            RU: 1200,
+            ZA: 1100,
+            AR: 800,
+            SE: 950,
+            PL: 800,
+            KR: 1300,
           };
           break;
         case "lastMonth":
@@ -93,6 +117,18 @@ export default {
             IN: 4000,
             JP: 7000,
             TH: 1000,
+            AU: 3200,
+            BR: 4500,
+            MX: 4000,
+            IT: 4000,
+            ES: 3800,
+            NL: 3500,
+            RU: 5000,
+            ZA: 4200,
+            AR: 3500,
+            SE: 4600,
+            PL: 4200,
+            KR: 5500,
           };
           break;
         case "lastYear":
@@ -105,6 +141,18 @@ export default {
             IN: 20000,
             JP: 35000,
             TH: 20000,
+            AU: 18000,
+            BR: 25000,
+            MX: 22000,
+            IT: 25000,
+            ES: 27000,
+            NL: 24000,
+            RU: 30000,
+            ZA: 22000,
+            AR: 25000,
+            SE: 28000,
+            PL: 25000,
+            KR: 35000,
           };
           break;
         default:
