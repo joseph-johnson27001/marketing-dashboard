@@ -33,6 +33,7 @@ body {
   height: 100dvh;
   width: 100dvw;
   display: flex;
+  font-family: "Assistant", serif;
 }
 
 .main-content {

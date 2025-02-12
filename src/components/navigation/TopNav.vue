@@ -9,20 +9,20 @@
       </button>
     </div>
     <div class="right">
-      <span class="user-name">John Doe</span>
+      <button class="notification-btn">
+        <i class="fas fa-bell"></i>
+        <span class="badge">5</span>
+      </button>
+      <button class="mail-btn">
+        <i class="fas fa-envelope"></i>
+        <span class="badge">3</span>
+      </button>
       <img
         class="profile-pic"
         src="https://via.placeholder.com/30"
         alt="User Profile"
       />
-      <button class="mail-btn">
-        <i class="fas fa-envelope"></i>
-        <span class="badge">3</span>
-      </button>
-      <button class="notification-btn">
-        <i class="fas fa-bell"></i>
-        <span class="badge">5</span>
-      </button>
+      <span class="user-name">John Doe</span>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@
   background-color: #fff;
   color: #333;
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 
 .left {
@@ -52,29 +52,25 @@
   border: none;
   color: #333;
   font-size: 18px;
-  margin-right: 15px;
 }
 
 .right {
   display: flex;
   align-items: center;
-}
-
-.user-name {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .profile-pic {
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .mail-btn,
 .notification-btn {
   background: none;
   border: none;
-  color: white;
-  margin-left: 15px;
+  color: #333;
+  margin-right: 15px;
   position: relative;
 }
 
