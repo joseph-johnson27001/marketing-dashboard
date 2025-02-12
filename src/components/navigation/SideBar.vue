@@ -33,37 +33,37 @@ export default {
           label: "Campaigns",
           link: "/campaigns",
           icon: "fas fa-bullhorn",
-          iconColor: "#e74c3c",
+          iconColor: "#dd6d6b",
         },
         {
           label: "Traffic",
           link: "/traffic",
-          icon: "fas fa-chart-line",
-          iconColor: "#2ecc71",
+          icon: "fas fa-bar-chart",
+          iconColor: "#3BCB98",
         },
         {
           label: "Leads",
           link: "/leads",
-          icon: "fas fa-user-friends",
-          iconColor: "#9b59b6",
+          icon: "fas fa-user",
+          iconColor: "#B57EDC",
         },
         {
           label: "SEO",
           link: "/seo",
           icon: "fas fa-search",
-          iconColor: "#f1c40f",
+          iconColor: "#F1C40F",
         },
         {
           label: "Social",
           link: "/social",
           icon: "fas fa-share-alt",
-          iconColor: "#34495e",
+          iconColor: "#4B78D0",
         },
         {
           label: "Reports",
           link: "/reports",
           icon: "fas fa-file-alt",
-          iconColor: "#16a085",
+          iconColor: "#16C28D",
         },
       ],
     };
@@ -94,12 +94,15 @@ export default {
 .sidebar-header h1 {
   font-size: 24px;
   margin: 0;
-  padding: 10px;
+  padding: 10px 20px;
+  font-weight: 400;
+  text-align: left;
 }
 
 .nav {
   list-style: none;
   padding: 0;
+  margin-top: 15px;
 }
 
 .nav-item {
@@ -107,11 +110,11 @@ export default {
   align-items: center;
   padding: 15px 20px;
   text-decoration: none;
-  color: #000;
+  color: #333;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  font-size: 1=0.9rem;
-  font-family: "Assistant", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .nav-item i {

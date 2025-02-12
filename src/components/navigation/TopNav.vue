@@ -19,7 +19,7 @@
       </button>
       <img
         class="profile-pic"
-        src="https://via.placeholder.com/30"
+        src="images/ProfilePhoto4.jpg"
         alt="User Profile"
       />
       <span class="user-name">John Doe</span>
@@ -44,6 +44,11 @@
 .left {
   display: flex;
   align-items: center;
+  margin-left: 5px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .hamburger-btn,
@@ -51,7 +56,8 @@
   background: none;
   border: none;
   color: #333;
-  font-size: 18px;
+  font-size: 0.85rem;
+  margin-left: 5px;
 }
 
 .right {
@@ -62,7 +68,16 @@
 
 .profile-pic {
   border-radius: 50%;
-  margin-right: 15px;
+  margin-right: 5px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.user-name {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .mail-btn,
@@ -76,9 +91,9 @@
 
 .badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: red;
+  top: -7px;
+  right: -3px;
+  background-color: #d86890;
   color: white;
   border-radius: 50%;
   font-size: 10px;
