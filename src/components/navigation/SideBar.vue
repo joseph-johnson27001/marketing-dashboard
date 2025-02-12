@@ -46,7 +46,7 @@ export default {
           label: "Campaigns",
           link: "/campaigns",
           icon: "fas fa-bullhorn",
-          iconColor: "#dd6d6b",
+          iconColor: "#d86890",
         },
         {
           label: "Traffic",
@@ -81,7 +81,7 @@ export default {
       ],
       logoutItem: {
         label: "Logout",
-        // link: "/logout",
+        link: "#",
         icon: "fas fa-sign-out-alt",
         iconColor: "#e74c3c",
       },
@@ -103,7 +103,7 @@ export default {
   background-color: #fff;
   transition: width 0.3s ease;
   height: 100dvh;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #eee;
   color: #333;
 }
 
@@ -114,7 +114,7 @@ export default {
 .sidebar-header {
   text-align: center;
   height: 50px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .sidebar-header h1 {

@@ -38,7 +38,7 @@
   background-color: #fff;
   color: #333;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .left {
