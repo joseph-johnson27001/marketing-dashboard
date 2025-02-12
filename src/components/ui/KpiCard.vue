@@ -20,7 +20,7 @@ export default {
     value: { type: [String, Number], required: true },
     percentage: { type: Number, required: true },
     icon: { type: String, required: true },
-    iconColor: { type: String, required: true }, // New prop for icon color
+    iconColor: { type: String, required: true },
   },
   computed: {
     percentageClass() {

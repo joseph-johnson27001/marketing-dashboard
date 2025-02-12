@@ -1,11 +1,12 @@
 <template>
   <div class="overview-page">
-    <div class="kpi-container">
+    <LoadingSpinner v-if="overviewStore.loading" />
+    <div v-else class="kpi-container">
       <KpiCard
         v-for="(kpi, index) in kpiData"
         :key="index"
         :title="kpi.title"
-        :value="overviewStore.kpis[index]?.value || 'Loading...'"
+        :value="overviewStore.kpis[index]?.value"
         :percentage="overviewStore.kpis[index]?.percentage || 0"
         :icon="kpi.icon"
         :iconColor="kpi.iconColor"
@@ -17,10 +18,11 @@
 <script>
 import { useOverviewStore } from "@/store/overviewStore";
 import KpiCard from "@/components/ui/KpiCard.vue";
+import LoadingSpinner from "@/components/ui/LoadingSpinner.vue";
 import { onMounted, computed } from "vue";
 
 export default {
-  components: { KpiCard },
+  components: { KpiCard, LoadingSpinner },
 
   setup() {
     const overviewStore = useOverviewStore();
@@ -51,6 +53,7 @@ export default {
 .overview-page {
   padding: 20px;
 }
+
 .kpi-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
