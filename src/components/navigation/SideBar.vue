@@ -4,16 +4,29 @@
       <h1 v-if="!collapsed">Dashboard</h1>
       <i v-if="collapsed" class="fas fa-tachometer-alt"></i>
     </div>
-    <ul class="nav">
-      <li v-for="(item, index) in navItems" :key="index">
-        <router-link :to="item.link" class="nav-item">
-          <i :class="item.icon" :style="{ color: item.iconColor }"></i>
-          <!-- Dynamic Icon -->
-          <span v-if="!collapsed">{{ item.label }}</span>
-          <!-- Dynamic Label -->
-        </router-link>
-      </li>
-    </ul>
+
+    <div class="nav-items">
+      <ul class="nav">
+        <!-- Loop through filtered navItems (without logout) -->
+        <li v-for="(item, index) in filteredNavItems" :key="index">
+          <router-link :to="item.link" class="nav-item">
+            <i :class="item.icon" :style="{ color: item.iconColor }"></i>
+            <span v-if="!collapsed">{{ item.label }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Logout item at the bottom -->
+    <div class="logout" v-if="logoutItem">
+      <router-link :to="logoutItem.link" class="nav-item">
+        <i
+          :class="logoutItem.icon"
+          :style="{ color: logoutItem.iconColor }"
+        ></i>
+        <span v-if="!collapsed">{{ logoutItem.label }}</span>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -66,13 +79,26 @@ export default {
           iconColor: "#16C28D",
         },
       ],
+      logoutItem: {
+        label: "Logout",
+        link: "/logout",
+        icon: "fas fa-sign-out-alt",
+        iconColor: "#e74c3c",
+      },
     };
+  },
+  computed: {
+    filteredNavItems() {
+      return this.navItems;
+    },
   },
 };
 </script>
 
 <style scoped>
 .sidebar {
+  display: flex;
+  flex-direction: column;
   width: 250px;
   background-color: #fff;
   transition: width 0.3s ease;
@@ -97,6 +123,10 @@ export default {
   padding: 10px 20px;
   font-weight: 400;
   text-align: left;
+}
+
+.nav-items {
+  flex-grow: 1;
 }
 
 .nav {
@@ -134,7 +164,8 @@ export default {
   display: inline-block;
 }
 
-.sidebar.collapsed .nav-item span {
-  display: none;
+/* Logout button positioned at the bottom */
+.logout {
+  margin-top: auto;
 }
 </style>
