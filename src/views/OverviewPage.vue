@@ -15,15 +15,15 @@
       </div>
 
       <div class="top-container">
-        <div class="map-container">
-          <MapContainer mapTitle="Viewers" />
-        </div>
         <div class="chart-container">
           <ChartContainerCard chartTitle="Subscribers">
             <template v-slot="{ selectedRange }">
               <SubscribersGraph :selectedRange="selectedRange" />
             </template>
           </ChartContainerCard>
+        </div>
+        <div class="map-container">
+          <MapContainer mapTitle="Viewers" />
         </div>
       </div>
 
@@ -99,7 +99,7 @@ export default {
 
 .top-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   margin-top: 10px;
   gap: 10px;
 }

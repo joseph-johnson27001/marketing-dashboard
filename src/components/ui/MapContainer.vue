@@ -51,7 +51,7 @@ export default {
   },
   data() {
     return {
-      selectedRange: "hourly",
+      selectedRange: "daily",
       viewershipData: {},
       tooltipVisible: false,
       tooltipContent: "",
@@ -106,9 +106,9 @@ export default {
 }
 
 .map-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #333;
+  color: #000;
 }
 
 .range-dropdown {

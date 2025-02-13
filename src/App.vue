@@ -29,11 +29,14 @@ body {
   padding: 0px;
 }
 
+* {
+  font-family: "Assistant", sans-serif;
+}
+
 #app {
   min-height: 100dvh;
   width: 100%;
   display: flex;
-  font-family: "Assistant", serif;
 }
 
 .main-content {

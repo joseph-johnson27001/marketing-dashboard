@@ -32,15 +32,30 @@ export default {
           plugins: {
             legend: {
               display: false,
+              labels: {
+                font: {
+                  family: '"Assistant", sans-serif',
+                },
+              },
             },
           },
           scales: {
             x: {
-              ticks: { color: "#333" },
+              ticks: {
+                color: "#333",
+                font: {
+                  family: '"Assistant", sans-serif',
+                },
+              },
               grid: { display: false },
             },
             y: {
-              ticks: { color: "#333" },
+              ticks: {
+                color: "#333",
+                font: {
+                  family: '"Assistant", sans-serif',
+                },
+              },
             },
           },
         },
@@ -66,6 +81,7 @@ export default {
                 pointBorderColor: "#fff",
                 pointBorderWidth: 2,
                 pointRadius: 5,
+                fontFamily: '"Assistant", sans-serif',
               },
             ],
           });

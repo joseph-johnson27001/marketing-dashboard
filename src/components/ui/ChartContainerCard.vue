@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      selectedRange: "hourly",
+      selectedRange: "monthly",
     };
   },
 };
@@ -56,9 +56,9 @@ export default {
 }
 
 .chart-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #333;
+  color: #000;
 }
 
 .range-dropdown {
