@@ -179,7 +179,6 @@ export default {
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .map-header {
@@ -203,7 +202,7 @@ export default {
 }
 
 .map-placeholder {
-  height: 400px;
+  height: 300px;
   background-color: #f9f9f9;
 }
 </style>

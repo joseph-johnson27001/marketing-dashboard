@@ -2,10 +2,9 @@
   <div class="chart-container-card">
     <!-- Chart Header -->
     <div class="chart-header">
-      <!-- Chart Title (Top Left) -->
       <span class="chart-title">{{ chartTitle }}</span>
 
-      <!-- Dropdown (Top Right) -->
+      <!-- Dropdown for selecting range -->
       <select class="range-dropdown" v-model="selectedRange">
         <option value="24hr">24hr</option>
         <option value="lastWeek">1 Week</option>
@@ -14,10 +13,11 @@
       </select>
     </div>
 
-    <!-- Chart Placeholder (Below Header) -->
+    <!-- Chart Slot -->
     <div class="chart-placeholder">
-      <!-- The actual graph will be here later -->
-      <p>Graph will appear here</p>
+      <slot :selectedRange="selectedRange"></slot>
+
+      <!-- Allow graphs to be injected here -->
     </div>
   </div>
 </template>
@@ -47,7 +47,6 @@ export default {
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .chart-header {

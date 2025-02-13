@@ -3,7 +3,6 @@
     <LoadingSpinner v-if="overviewStore.loading" />
     <div v-else>
       <div class="kpi-container">
-        <!-- Kpi Cards -->
         <KpiCard
           v-for="(kpi, index) in kpiData"
           :key="index"
@@ -15,23 +14,29 @@
         />
       </div>
 
-      <!-- Map Container -->
       <div class="top-container">
         <div class="map-container">
           <MapContainer mapTitle="Subscribers" />
         </div>
         <div class="chart-container">
-          <ChartContainerCard :chartTitle="'Viewership'" />
+          <ChartContainerCard chartTitle="Subscribers">
+            <template v-slot="{ selectedRange }">
+              <SubscribersGraph :selectedRange="selectedRange" />
+            </template>
+          </ChartContainerCard>
         </div>
       </div>
 
-      <!-- Chart Container Cards -->
       <div class="chart-containers">
         <div class="chart-container">
-          <ChartContainerCard :chartTitle="'Viewership'" />
+          <ChartContainerCard chartTitle="Viewership">
+            <!-- You can add a relevant graph here -->
+          </ChartContainerCard>
         </div>
         <div class="chart-container">
-          <ChartContainerCard :chartTitle="'Traffic Over Time'" />
+          <ChartContainerCard chartTitle="Traffic Over Time">
+            <!-- Another graph can go here -->
+          </ChartContainerCard>
         </div>
       </div>
     </div>
@@ -45,9 +50,16 @@ import ChartContainerCard from "@/components/ui/ChartContainerCard.vue";
 import LoadingSpinner from "@/components/ui/LoadingSpinner.vue";
 import MapContainer from "@/components/ui/MapContainer.vue";
 import { onMounted, computed } from "vue";
+import SubscribersGraph from "@/components/graphs/Overview/SubscribersGraph.vue";
 
 export default {
-  components: { KpiCard, LoadingSpinner, ChartContainerCard, MapContainer },
+  components: {
+    KpiCard,
+    LoadingSpinner,
+    ChartContainerCard,
+    MapContainer,
+    SubscribersGraph,
+  },
 
   setup() {
     const overviewStore = useOverviewStore();
@@ -87,7 +99,7 @@ export default {
 
 .top-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 10px;
   gap: 10px;
 }
