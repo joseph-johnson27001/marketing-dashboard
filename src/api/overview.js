@@ -13,3 +13,7 @@ export function fetchSubscribersGraphData(range) {
 export function fetchViewershipData(range) {
   return Promise.resolve(OverviewData.viewershipData[range] || {});
 }
+
+export const fetchAdSpendVsROIData = async (range) => {
+  return Promise.resolve(OverviewData.adSpendVsROIData[range] || {});
+};
