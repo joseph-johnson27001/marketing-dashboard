@@ -33,7 +33,6 @@ export default {
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  height: 325px;
 }
 
 .card-header {

@@ -56,6 +56,12 @@ export default {
           impressions: 5000,
           clicks: 200,
         },
+        {
+          name: "Black Friday",
+          status: "Paused",
+          impressions: 5000,
+          clicks: 200,
+        },
       ],
     };
   },

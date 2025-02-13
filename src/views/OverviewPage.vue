@@ -15,18 +15,14 @@
       </div>
 
       <div class="top-container">
-        <div class="chart-container">
+        <div>
           <ChartContainerCard chartTitle="Subscribers">
             <template v-slot="{ selectedRange }">
               <SubscribersGraph :selectedRange="selectedRange" />
             </template>
           </ChartContainerCard>
         </div>
-        <div class="chart-container">
-          <TableCard cardTitle="Current Campaigns">
-            <CampaignTable />
-          </TableCard>
-        </div>
+        <div class="chart-container"></div>
       </div>
 
       <div class="chart-containers">
@@ -35,7 +31,10 @@
             <AdSpendVsROIGraph :selectedRange="selectedRange" />
           </template>
         </ChartContainerCard>
-        <div class="chart-container">
+        <div>
+          <!-- <TableCard cardTitle="Current Campaigns">
+            <CampaignTable />
+          </TableCard> -->
           <div class="map-container">
             <MapContainer mapTitle="Viewers" />
           </div>
@@ -54,8 +53,8 @@ import MapContainer from "@/components/ui/MapContainer.vue";
 import { onMounted, computed } from "vue";
 import SubscribersGraph from "@/components/graphs/Overview/SubscribersGraph.vue";
 import AdSpendVsROIGraph from "@/components/graphs/Overview/AdSpendVsROIGraph.vue";
-import CampaignTable from "@/components/tables/Overview/CampaignTable.vue";
-import TableCard from "@/components/ui/TableCard.vue";
+// import CampaignTable from "@/components/tables/Overview/CampaignTable.vue";
+// import TableCard from "@/components/ui/TableCard.vue";
 
 export default {
   components: {
@@ -65,8 +64,8 @@ export default {
     MapContainer,
     SubscribersGraph,
     AdSpendVsROIGraph,
-    CampaignTable,
-    TableCard,
+    // CampaignTable,
+    // TableCard,
   },
 
   setup() {
@@ -103,15 +102,19 @@ export default {
 
 .top-container {
   display: grid;
-  grid-template-columns: 5fr 2fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 10px;
   gap: 10px;
 }
 
 .chart-containers {
   display: grid;
-  grid-template-columns: 5fr 2fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 10px;
   gap: 10px;
+}
+
+.chart-container {
+  display: flex;
 }
 </style>
