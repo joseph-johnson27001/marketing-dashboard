@@ -9,3 +9,7 @@ export function fetchSubscribersGraphData(range) {
     OverviewData.subscribersGraph[range] || { labels: [], data: [] }
   );
 }
+
+export function fetchViewershipData(range) {
+  return Promise.resolve(OverviewData.viewershipData[range] || {});
+}
