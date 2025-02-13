@@ -7,6 +7,7 @@
 <script>
 import { onMounted, watch, ref } from "vue";
 import Chart from "chart.js/auto";
+import { fetchSubscribersGraphData } from "@/api/overview";
 
 export default {
   props: {
@@ -18,17 +19,6 @@ export default {
   setup(props) {
     const chartCanvas = ref(null);
     let chartInstance = null;
-
-    onMounted(() => {
-      createChart(getChartData("24hr"));
-    });
-
-    watch(
-      () => props.selectedRange,
-      (newRange) => {
-        updateChart(getChartData(newRange));
-      }
-    );
 
     function createChart(data) {
       if (chartInstance) chartInstance.destroy();
@@ -47,9 +37,7 @@ export default {
           scales: {
             x: {
               ticks: { color: "#333" },
-              grid: {
-                display: false,
-              },
+              grid: { display: false },
             },
             y: {
               ticks: { color: "#333" },
@@ -57,72 +45,46 @@ export default {
           },
         },
       });
-
-      console.log(chartInstance);
     }
 
-    function updateChart(data) {
-      if (chartInstance) {
-        chartInstance.data = data;
-        chartInstance.update();
+    function loadChartData(range) {
+      fetchSubscribersGraphData(range)
+        .then((data) => {
+          if (!data || !data.labels || !data.data) return;
+
+          createChart({
+            labels: data.labels,
+            datasets: [
+              {
+                label: "Subscribers",
+                data: data.data,
+                fill: false,
+                borderColor: "#0288d1",
+                tension: 0.2,
+                borderWidth: 2,
+                pointBackgroundColor: "#0288d1",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+              },
+            ],
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching chart data:", error);
+        });
+    }
+
+    onMounted(() => {
+      loadChartData(props.selectedRange);
+    });
+
+    watch(
+      () => props.selectedRange,
+      (newRange) => {
+        loadChartData(newRange);
       }
-    }
-
-    function getChartData(range) {
-      let labels = [];
-      let data = [];
-
-      switch (range) {
-        case "24hr":
-          labels = Array.from({ length: 24 }, (_, i) => `${i + 1}h`);
-          data = labels.map(() => Math.floor(Math.random() * 100));
-          break;
-        case "lastWeek":
-          labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-          data = labels.map(() => Math.floor(Math.random() * 1000));
-          break;
-        case "lastMonth":
-          labels = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
-          data = labels.map(() => Math.floor(Math.random() * 5000));
-          break;
-        case "lastYear":
-          labels = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ];
-          data = labels.map(() => Math.floor(Math.random() * 20000));
-          break;
-      }
-
-      return {
-        labels,
-        datasets: [
-          {
-            label: "Subscribers",
-            data,
-            fill: false,
-            borderColor: "#0288d1",
-            tension: 0.2,
-            borderWidth: 2,
-            pointBackgroundColor: "#0288d1",
-            pointBorderColor: "#fff",
-            pointBorderWidth: 2,
-            pointRadius: 5,
-            fontamily: '"Assistant", sans-serif',
-          },
-        ],
-      };
-    }
+    );
 
     return { chartCanvas };
   },

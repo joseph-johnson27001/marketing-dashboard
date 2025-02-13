@@ -1,0 +1,28 @@
+{
+  "kpis": [
+    { "value": "$15,200", "percentage": 8.5 },
+    { "value": "1,250", "percentage": -2.3 },
+    { "value": "75%", "percentage": 5.1 },
+    { "value": "320", "percentage": -1.2 },
+    { "value": "88%", "percentage": 3.4 },
+    { "value": "540", "percentage": 12.7 }
+  ],
+  "subscribersGraph": {
+    "hourly": {
+      "labels": ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM"],
+      "data": [50, 60, 55, 70, 90, 80]
+    },
+    "daily": {
+      "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "data": [500, 600, 550, 700, 900, 800, 750]
+    },
+    "weekly": {
+      "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+      "data": [3000, 3200, 3100, 3500]
+    },
+    "monthly": {
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "data": [12000, 12500, 13000, 11000, 15000, 14000]
+    }
+  }
+}

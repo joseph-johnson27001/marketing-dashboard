@@ -6,10 +6,10 @@
 
       <!-- Dropdown for selecting range -->
       <select class="range-dropdown" v-model="selectedRange">
-        <option value="24hr">24hr</option>
-        <option value="lastWeek">1 Week</option>
-        <option value="lastMonth">1 Month</option>
-        <option value="lastYear">1 Year</option>
+        <option value="hourly">Hourly</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
       </select>
     </div>
 
@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      selectedRange: "24hr",
+      selectedRange: "hourly",
     };
   },
 };
