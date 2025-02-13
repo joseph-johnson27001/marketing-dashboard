@@ -16,7 +16,7 @@
 
       <div class="top-container">
         <div class="map-container">
-          <MapContainer mapTitle="Subscribers" />
+          <MapContainer mapTitle="Viewers" />
         </div>
         <div class="chart-container">
           <ChartContainerCard chartTitle="Subscribers">

@@ -1,5 +1,5 @@
 <template>
-  <div class="map-container">
+  <div class="map-container" @mousemove="updateTooltipPosition">
     <div class="map-header">
       <span class="map-title">{{ mapTitle }}</span>
       <select class="range-dropdown" v-model="selectedRange">
@@ -18,7 +18,18 @@
         style="background-color: white"
         :defaultCountryFillColor="'#e4ecef'"
         :countryStrokeColor="'white'"
+        @mouseover="showTooltip"
+        @mouseleave="hideTooltip"
       />
+    </div>
+
+    <!-- Tooltip -->
+    <div
+      v-if="tooltipVisible"
+      class="tooltip"
+      :style="{ bottom: '10px', right: '10px' }"
+    >
+      {{ tooltipContent }}
     </div>
   </div>
 </template>
@@ -42,6 +53,8 @@ export default {
     return {
       selectedRange: "hourly",
       viewershipData: {},
+      tooltipVisible: false,
+      tooltipContent: "",
     };
   },
   watch: {
@@ -58,6 +71,16 @@ export default {
         console.error("Error fetching viewership data:", error);
       }
     },
+    showTooltip(event) {
+      const countryCode = event.target.id;
+      if (!countryCode || !this.viewershipData[countryCode]) {
+        this.tooltipVisible = false;
+        return;
+      }
+      const views = this.viewershipData[countryCode] || 0;
+      this.tooltipContent = `${countryCode} Views: ${views}`;
+      this.tooltipVisible = true;
+    },
   },
   mounted() {
     this.loadViewershipData(this.selectedRange);
@@ -73,6 +96,7 @@ export default {
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .map-header {
@@ -98,5 +122,16 @@ export default {
 .map-placeholder {
   height: 300px;
   background-color: #f9f9f9;
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  z-index: 10;
 }
 </style>
