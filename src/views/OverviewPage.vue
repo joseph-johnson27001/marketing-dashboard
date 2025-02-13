@@ -22,19 +22,19 @@
             </template>
           </ChartContainerCard>
         </div>
-        <ChartContainerCard chartTitle="Ad Spend vs ROI">
-          <template v-slot="{ selectedRange }">
-            <AdSpendVsROIGraph :selectedRange="selectedRange" />
-          </template>
-        </ChartContainerCard>
-      </div>
-
-      <div class="chart-containers">
         <div class="chart-container">
           <TableCard cardTitle="Current Campaigns">
             <CampaignTable />
           </TableCard>
         </div>
+      </div>
+
+      <div class="chart-containers">
+        <ChartContainerCard chartTitle="Ad Spend vs ROI">
+          <template v-slot="{ selectedRange }">
+            <AdSpendVsROIGraph :selectedRange="selectedRange" />
+          </template>
+        </ChartContainerCard>
         <div class="chart-container">
           <div class="map-container">
             <MapContainer mapTitle="Viewers" />
@@ -103,14 +103,14 @@ export default {
 
 .top-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 2fr;
   margin-top: 10px;
   gap: 10px;
 }
 
 .chart-containers {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 5fr 2fr;
   margin-top: 10px;
   gap: 10px;
 }
