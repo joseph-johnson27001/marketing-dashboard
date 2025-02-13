@@ -4,7 +4,9 @@
     <div class="main-content">
       <div class="content">
         <TopNav @toggle-sidebar="toggleSidebar" />
-        <router-view />
+        <div class="main">
+          <router-view />
+        </div>
         <!-- Dynamically load pages like Overview, Campaigns, Traffic -->
       </div>
     </div>
@@ -47,5 +49,9 @@ body {
 .content {
   flex-grow: 1;
   background-color: #f8fafb;
+}
+
+.main {
+  padding: 10px;
 }
 </style>

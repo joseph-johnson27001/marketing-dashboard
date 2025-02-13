@@ -95,10 +95,6 @@ export default {
 </script>
 
 <style scoped>
-.overview-page {
-  padding: 10px;
-}
-
 .kpi-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
