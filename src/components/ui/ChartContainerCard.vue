@@ -42,8 +42,8 @@ export default {
 <style scoped>
 .chart-container-card {
   background: #fff;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 4px;
+  padding: 10px 20px;
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;

@@ -97,6 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 325px;
 }
 
 .map-header {

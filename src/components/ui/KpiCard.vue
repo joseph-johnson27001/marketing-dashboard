@@ -39,7 +39,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #eee;
   padding: 15px;
-  gap: 15px;
+  gap: 5px;
 }
 
 .kpi-header {
