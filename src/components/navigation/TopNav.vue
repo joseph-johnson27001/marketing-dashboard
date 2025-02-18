@@ -11,7 +11,7 @@
     <div class="right">
       <button class="notification-btn">
         <i class="fas fa-bell"></i>
-        <span class="badge">5</span>
+        <span class="badge">3</span>
       </button>
       <button class="mail-btn">
         <i class="fas fa-envelope"></i>
@@ -91,12 +91,13 @@ button {
 
 .badge {
   position: absolute;
-  top: -7px;
+  top: -8px;
   right: -3px;
   background-color: #d86890;
   color: white;
+  border: 1px solid white;
   border-radius: 50%;
-  font-size: 10px;
+  font-size: 9px;
   padding: 2px 5px;
 }
 </style>
